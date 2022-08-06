@@ -21,7 +21,7 @@ function updatedHandle1() {
   console.log(guess)
 }
   const iSolution =() => {
-  document.getElementById("guessedWords").innerHTML = (progress.toString())
+  document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
   document.getElementById("lives").innerHTML = (`${pLives} lives`)
   console.log(progress)
   }
@@ -52,10 +52,10 @@ const pushedIntoCorrectSpot = (string) => {
     progress = solution.map(x => x = '_')
     pLives = 4
     console.log(progress.toString())
-    document.getElementById("guessedWords").innerHTML = (progress.toString())
+    document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
     document.getElementById("lives").innerHTML = (`${pLives} lives`)
   }
-const hangman = (guess) => {
+const hangman = () => {
     let userGuess = guess.toLowerCase().trim()
     if(letterCorrect(userGuess) === true){
       pushedIntoCorrectSpot(userGuess)
@@ -68,7 +68,7 @@ const hangman = (guess) => {
        resetBoard()
       } else {
         console.log(progress.toString())
-        document.getElementById("guessedWords").innerHTML = (progress.toString())
+        document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
       }
     }
     else {
@@ -79,7 +79,7 @@ const hangman = (guess) => {
         document.getElementById("message").innerHTML = (`Wrong Letter. Try Again <br> You have ${pLives} lives left`)
         console.log(solution)
         console.log(progress.toString())
-        document.getElementById("guessedWords").innerHTML = (progress.toString())
+        document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
         document.getElementById("lives").innerHTML = (`${pLives} lives`)
       } else if (pLives === 2){
         console.log("Wrong Letter. Try Again")
@@ -87,10 +87,11 @@ const hangman = (guess) => {
         console.log(`You have ${pLives} life left`)
         console.log(solution)
         console.log(progress.toString())
-        document.getElementById("guessedWords").innerHTML = (progress.toString())
+        document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
         document.getElementById("lives").innerHTML = (`${pLives} life`)
       } else{
         console.log('Ran out of Lives. Try again with a new word!')
+        document.getElementById("message").innerHTML = (`Ran out of Lives. Try again with a new word!`)
         resetBoard()
       }
 }

@@ -1,6 +1,30 @@
-div{
-  height: 100px;
+div:not(#display-element){
+  height: 150px;
   width: 200px;
   border: solid black 2px;
-  font-size: 20px;
+  font-size: 25px;
+}
+
+#guess{
+ height: 100px;
+ width: 100px;
+ font-size: 30px;
+ text-align: center;
+}
+
+#guess::placeholder{
+  font-size: 18px;
+} 
+
+button{
+ height: 75px;
+ width: 100px;
+ background-color: lightgray;
+ color: black;   
+}
+#guessedWords{   
+font-size: 40px;
+text-align: center;
+padding-top: 80px;
+
 }
