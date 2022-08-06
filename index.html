@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body onload="iSolution()">
+    <h1>HangMan</h1>
+    <hr/>
+    <div id="display-element"></div>
+      <input type="text" name="Handle1" placeholder="enterguess" onkeyup="updatedHandle1()" id="guess">
+      <!-- How do you get this input sent to the pigLatin() function? -->
+      <button onclick="hangman()">Guess?</button>
+      <div id="message"></div>
+      <div id="guessedWords"></div> 
+      <div id="lives"></div>  
+    <hr/>
+<script src="main.js"></script>     
+</body>
+</html>
