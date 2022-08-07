@@ -1,20 +1,101 @@
-div:not(#display-element){
-  height: 150px;
-  width: 200px;
+
+h1, h2{
+  height: fit-content;
+  width: fit-content;
+  margin: 20px auto;
+}
+
+.UserMessages{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 15px 15px 2px 25%;
+  row-gap: 4vh;
+}
+.hangman{
+  display: grid;
+  grid-template-columns: 100px 75px 100px;
+  grid-template-rows: 75px 100px 100px;
+  border-right: solid black 20px;
+  border-bottom: solid black 20px;
+  border-top: solid black 20px;
+  width: 275px;
+  height: 325px;
+  position: relative;
+  left: 80vh;
+}
+.hangman:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 50px;
+  top: -20px;
+  left: 0px;
+  border: 20px solid white;
+}
+.circle {
+  width: 75px;
+  height: 75px;
+  background: black;
+  border-radius: 50%;
+  grid-area: 1/ 2/ span 1/ span 1; 
+}
+.arms {
+  width: 15px;
+  height: 100px;
+}
+#arms1 {
+  grid-area: 2/ 1/ span 1/ span 1;
+  background: black;
+  transform: rotate(215deg);
+  margin-left: 60px;
+}
+#arms2 {
+  grid-area: 2/ 3/ span 1/ span 1;
+  background: black;
+  transform: rotate(325deg);
+  margin-left: 30px;
+}
+.body {
+  width: 45px;
+  height: 115px;
+  margin: 5px 17px;
+  background: black;
+  grid-area: 2/ 2/ span 1/ span 1;
+}
+.legs {
+  width: 15px;
+  height: 100px;
+}
+#legs1 {
+  grid-area: 3/ 1/ span 1/ span 1;
+  background: black;
+  transform: rotate(215deg);
+  margin-left: 60px;
+  
+}
+#legs2 {
+  grid-area: 3/ 3/ span 1/ span 1;
+  background: black;
+  transform: rotate(325deg);
+  margin-left: 30px;
+}
+#message{
+  height: 125px;
+  text-align: center;
+  width: 65vh;
+  font-size: 45px;
+  /*margin: 30px auto 10px auto; */
   border: solid black 2px;
-  font-size: 25px;
 }
-
-#guess{
- height: 100px;
- width: 100px;
- font-size: 30px;
- text-align: center;
+#lives {
+  border: solid black 2px;
+  /* margin: 20px 0; */
+  padding: 5px 10px;
+  width: 100px;
+  font-size: 30px;
+  height: 40px;
 }
-
-#guess::placeholder{
-  font-size: 18px;
-} 
 
 button{
  height: 75px;
@@ -22,9 +103,16 @@ button{
  background-color: lightgray;
  color: black;   
 }
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
 #guessedWords{   
-font-size: 40px;
+font-size: 75px;
 text-align: center;
 padding-top: 80px;
-
+width: fit-content;
+margin: 15px auto;
 }

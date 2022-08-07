@@ -10,13 +10,55 @@
 <body onload="iSolution()">
     <h1>HangMan</h1>
     <hr/>
-    <div id="display-element"></div>
-      <input type="text" name="Handle1" placeholder="enter 1 letter" onkeyup="updatedHandle1()" id="guess">
-      <!-- How do you get this input sent to the pigLatin() function? -->
-      <button onclick="hangman()">Guess?</button>
-      <div id="message"></div>
+    <div class="UserImages">
+      <div class="hangman">
+        <div class="hangmans circle" id="circle" ></div>
+        <div class="hangmans body" id="body" ></div>
+        <div class="hangmans arms" id="arms1"></div>
+        <div class="hangmans arms" id="arms2"></div>
+        <div class="hangmans legs" id="legs1"></div>
+        <div class="hangmans legs" id="legs2"></div>
+      </div>
       <div id="guessedWords"></div> 
-      <div id="lives"></div>  
+    </div>
+      <div class="UserMessages">
+        <div id="message"></div>
+        <div id="lives"></div> 
+      </div>
+      <h2>Pick a Letter Below to Guess</h1>
+      <div class="row">
+        <button class= "button" id= "q" onclick="hangman('q')">Q</button>
+        <button class= "button" id= "w" onclick="hangman('w')">W</button>
+        <button class= "button" id= "e" onclick="hangman('e')">E</button>
+        <button class= "button" id= "r" onclick="hangman('r')">R</button>
+        <button class= "button" id= "t" onclick="hangman('t')">T</button>
+        <button class= "button" id= "y" onclick="hangman('y')">Y</button>
+        <button class= "button" id= "u" onclick="hangman('u')">U</button>
+        <button class= "button" id= "i" onclick="hangman('i')">I</button>
+        <button class= "button" id= "o" onclick="hangman('o')">O</button>
+        <button class= "button" id= "p" onclick="hangman('p')">P</button>
+      </div>
+      <div class="row">
+        <button class= "button" id= "a" onclick="hangman('a')">A</button>
+        <button class= "button" id= "s" onclick="hangman('s')">S</button>
+        <button class= "button" id= "d" onclick="hangman('d')">D</button>
+        <button class= "button" id= "f" onclick="hangman('f')">F</button>
+        <button class= "button" id= "g" onclick="hangman('g')">G</button>
+        <button class= "button" id= "h" onclick="hangman('h')">H</button>
+        <button class= "button" id= "j" onclick="hangman('j')">J</button>
+        <button class= "button" id= "k" onclick="hangman('k')">K</button>
+        <button class= "button" id= "l" onclick="hangman('l')">L</button>
+      </div>
+      <div class="row">
+        <button class= "button" id= "z" onclick="hangman('z')">Z</button>
+        <button class= "button" id= "x" onclick="hangman('x')">X</button>
+        <button class= "button" id= "c" onclick="hangman('c')">C</button>
+        <button class= "button" id= "v" onclick="hangman('v')">V</button>
+        <button class= "button" id= "b" onclick="hangman('b')">B</button>
+        <button class= "button" id= "n" onclick="hangman('n')">N</button>
+        <button class= "button" id= "m" onclick="hangman('m')">M</button>
+      </div>
+
     <hr/>
 <script src="main.js"></script>     
 </body>
