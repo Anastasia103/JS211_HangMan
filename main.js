@@ -10,7 +10,6 @@
 Array.prototype.random = function () {
   return this[Math.floor((Math.random()*this.length))];
 }
-let guess =""
 let solutionsArray = ['girls', 'given', 'mayor', 'favorable', 'lane', 'train', 'past', 'amputate','session', 'mosaic', 'defendant','smart', 'year']
 let solution = solutionsArray.random().split("")
 let progress = solution.map(x => x = '_')
@@ -40,11 +39,33 @@ function updatedHandle1() {
         return false
   }
 }
+const wrongLetter = () => {
+  console.log("Wrong Letter. Try Again")
+  pLives = pLives - 1
+  console.log(`You have ${pLives} lives left`)
+  document.getElementById("message").innerHTML = (`Wrong Letter. Try Again <br> You have ${pLives} lives left`)
+  console.log(solution)
+  console.log(progress.toString())
+  document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
+  document.getElementById("lives").innerHTML = (`${pLives} lives`)
+}
 const pushedIntoCorrectSpot = (string) => {
     for (let i = 0; i< solution.length; i++){
       if (string === solution[i]){
         progress.splice(i, 1, string)
       }
+    }
+  }
+  function resetLetters() {
+    var elements = document.getElementsByClassName('button'); // get all elements
+    for(var i = 0; i < elements.length; i++){
+      elements[i].style.backgroundColor = "lightgray";
+    }
+  }
+  function resetHangman() {
+    var elements = document.getElementsByClassName('hangmans'); // get all elements
+    for(var i = 0; i < elements.length; i++){
+      elements[i].style.backgroundColor = "black";
     }
   }
   const resetBoard = () => {
@@ -55,9 +76,10 @@ const pushedIntoCorrectSpot = (string) => {
     document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
     document.getElementById("lives").innerHTML = (`${pLives} lives`)
   }
-const hangman = () => {
+const hangman = (guess) => {
     let userGuess = guess.toLowerCase().trim()
     if(letterCorrect(userGuess) === true){
+      document.getElementById(guess).style.backgroundColor = "green"
       pushedIntoCorrectSpot(userGuess)
       document.getElementById("message").innerHTML = ("You guessed correct! Guess Again?")
       document.getElementById("lives").innerHTML = (`${pLives} lives`)
@@ -65,6 +87,8 @@ const hangman = () => {
        console.log("You guessed the word!")
        console.log("Play Again?")
        document.getElementById("message").innerHTML = ("You guessed the word! <br> Play Again?")
+       resetHangman()
+       resetLetters()
        resetBoard()
       } else {
         console.log(progress.toString())
@@ -72,26 +96,30 @@ const hangman = () => {
       }
     }
     else {
-      if(pLives > 2){
-        console.log("Wrong Letter. Try Again")
-        pLives = pLives - 1
-        console.log(`You have ${pLives} lives left`)
-        document.getElementById("message").innerHTML = (`Wrong Letter. Try Again <br> You have ${pLives} lives left`)
-        console.log(solution)
-        console.log(progress.toString())
-        document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
-        document.getElementById("lives").innerHTML = (`${pLives} lives`)
-      } else if (pLives === 2){
+      document.getElementById(guess).style.backgroundColor = "red"
+      if(pLives === 4){
+        wrongLetter()
+        document.getElementById('legs1').style.background ='white'
+        document.getElementById('legs2').style.background ='white'
+      } else if(pLives === 3){
+        document.getElementById('arms1').style.background ='white'
+        document.getElementById('arms2').style.background ='white'
+        wrongLetter()
+      }  else if (pLives === 2){
         console.log("Wrong Letter. Try Again")
         pLives = pLives - 1
         console.log(`You have ${pLives} life left`)
+        document.getElementById("message").innerHTML = (`Wrong Letter. Try Again <br> You have ${pLives} life left`)
         console.log(solution)
         console.log(progress.toString())
         document.getElementById("guessedWords").innerHTML = (progress.toString().replace(/,/g, ' '))
         document.getElementById("lives").innerHTML = (`${pLives} life`)
+        document.getElementById('body').style.background ='white'
       } else{
         console.log('Ran out of Lives. Try again with a new word!')
         document.getElementById("message").innerHTML = (`Ran out of Lives. Try again with a new word!`)
+        resetHangman()
+        resetLetters()
         resetBoard()
       }
 }
